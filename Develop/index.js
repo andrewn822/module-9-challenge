@@ -76,21 +76,49 @@ const questions = [
             return answers.section && answers.sections.includes(validate)
         }
 
+    }, {
+        type: 'input'
+        name: 'contributing',
+        message: 'enter contributor name(s)',
+        when (answers) {
+            let validate = 'Contributing'
+            return answers.sections && answers.sections.includes(validate)
+        }
+    }, {
+
+    }, {
+        type: 'input',
+        name: 'tests',
+        message: 'enter testing methods used',
+        when (answers) {
+            let validate = 'Tests'
+            return answers.sections && answers.sections.includes(validate)
+
+        }
+    }, {
+        type: 'input',
+        name: 'questionsGit',
+        message: 'enter a github username',
+        when (answers) {
+            let validate = 'questions'
+            return answers.sections && answers.sections.includes(validate)
+        }
     }
 
+]
 
-
-
-
-
-
-
-
-``
-];
+//prompt user function
+const promptUser = function() {
+    return inqurier.prompt(questions);
+}
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(`${fileName}`,
+    generateMarkdown(data), function(err){
+        if (err) return console.log(err)
+    })
+}
 
 // TODO: Create a function to initialize app
 function init() {}
