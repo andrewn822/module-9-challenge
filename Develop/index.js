@@ -104,7 +104,6 @@ const questions = [
             return answers.sections && answers.sections.includes(validate)
         }
     }
-
 ]
 
 //prompt user function
@@ -121,7 +120,12 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    promptUser()
+        .then((answers) => writeToFile('README.md', answers))
+        .then(() => console.log('successfully wrote to README.md'))
+        .catch((err) => console.log(err));
+}
 
 // Function call to initialize app
 init();
