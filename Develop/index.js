@@ -38,7 +38,7 @@ const questions = [
         type: 'checkbox',
         name: 'tech',
         message: 'what tech did you use?',
-        choises: ['javascript, css, html, node.js'],
+        choises: ['javascript', 'css', 'html', 'node.js'],
         when (answers) {
             return answers.helper
         }
@@ -50,6 +50,32 @@ const questions = [
         when (answers) {
             return !answers.helper
         }
+    }, {
+        type: 'input',
+        name: 'install',
+        message: 'enter installation instructions',
+        when (answers) {
+            let validate = 'installation'
+            return answers.sections && answers.sections.includes(validate)
+        }
+    }, {
+        type: 'input',
+        name: 'usage',
+        message: 'enter usage intrsutctions',
+        when (answers) {
+            let validate = 'Usage'
+            return answers.sections && answers.sections.includes(validate)
+        }
+    }, {
+        type: 'list',
+        name: 'license',
+        message: 'which license would you like to use?',
+        choices: ['MIT', 'Mozilla Public 2.0', 'GNU GPL', 'Apache 2.0'],
+        when (answers) {
+            let validate = 'License'
+            return answers.section && answers.sections.includes(validate)
+        }
+
     }
 
 
