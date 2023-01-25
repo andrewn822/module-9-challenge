@@ -1,4 +1,3 @@
-##README generator
 
 ## Table of contents
 1. [Description](#Description)
